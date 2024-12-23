@@ -1,0 +1,33 @@
+.containDinamiccomponents{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.dinamyctiltle{
+    color: var( --color-text-2-page-home);
+    text-align: center;
+    font-family: var(--Font-pages);
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.dinamyctext{
+    color: var( --color-all-text-pages);
+    text-align: center;
+    font-family:var(--Font-pages);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+@media (max-width:700px){
+    .dinamyctiltle{
+        font-size:48px;
+    }
+    .dinamyctext{
+        font-size: 16px;
+    }
+}

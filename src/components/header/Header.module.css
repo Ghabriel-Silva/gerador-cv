@@ -1,0 +1,29 @@
+.containerheader{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containerheder{
+    width: 90vw;
+    padding: 20px 0;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoimg, .socialmedia{
+    width: 50px;
+}
+.navlogos{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 38px;
+}
+
+@media (max-width:500px) {
+    .logoimg, .socialmedia{
+        width: 30px;
+    }
+}

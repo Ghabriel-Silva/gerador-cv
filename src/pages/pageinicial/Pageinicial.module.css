@@ -1,0 +1,113 @@
+.containerpage{
+    width: 70vw;
+    height: auto;
+}
+
+.imgpageinicial{
+    width: 100%;
+}
+.containelemntespages{
+    display: flex;
+    gap:40px ;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height:  100%;
+   
+}
+
+.containtextopageinicial{
+    background-color: rgba(38, 255, 0, 0);
+    height: auto;
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.textopage{
+    color: var( --color-all-text-pages);
+    font-family:var(--Font-pages);
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 800;
+    text-align: center;
+}
+.bluetext{
+   
+    color: var( --color-text-2-page-home);
+}
+.yellowtext{
+    color: var(--color-text-1-page-home);
+}
+
+.paragrafopageinicial{
+    color:var(--color-all-text-pages);
+    text-align: center;
+    font-family: var(--Font-pages);
+    font-size: 18px;
+    font-weight: 400;
+}
+.buttonpageinicial{
+    width: 252px;
+    height: 72px;
+    border: none;
+    color: #fff;
+    background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+    border-radius: 10px;
+    background-size: 100% auto;
+    font-family: var(--Font-pages);
+    font-size: 22px;
+    font-weight: 800;
+}
+.buttonpageinicial:hover{
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
+}
+
+@keyframes pulse512 {
+    0% {
+     box-shadow: 0 0 0 0 #05bada66;
+    }
+   
+    70% {
+     box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+   
+    100% {
+     box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+   }
+
+
+  
+
+   @media (max-width: 700px) {
+
+    .containerpage{
+        width: 70vw;
+    }
+    .textopage{
+        font-size:48px;
+    }
+    .paragrafopageinicial{
+        font-size: 16px;
+    }
+    .containelemntespages{
+        gap: 20px;
+    }
+    .containtextopageinicial{
+        gap:30px;
+    }
+    .containtextopageinicial{
+        padding-top: 40px;
+    }
+
+    .buttonpageinicial{
+        width: 200px;
+         height: 52px;
+         font-size: 18px;
+    }
+   } 

@@ -86,11 +86,15 @@
 
    @media (max-width: 700px) {
 
+    .containelemntespages{
+        gap: 100px;
+    }
     .containerpage{
-        width: 70vw;
+        width: 90vw;
+
     }
     .textopage{
-        font-size:48px;
+        font-size:32px;
     }
     .paragrafopageinicial{
         font-size: 16px;

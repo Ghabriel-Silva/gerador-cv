@@ -1,0 +1,54 @@
+.ContainButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+}
+.buttons{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 252px;
+    height: 72px;
+    border: none;
+    color: #fff;
+    background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+    border-radius: 10px;
+    background-size: 100% auto;
+    font-family: var(--Font-pages);
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.buttons:hover{
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
+}
+
+@keyframes pulse512 {
+    0% {
+     box-shadow: 0 0 0 0 #05bada66;
+    }
+   
+    70% {
+     box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+   
+    100% {
+     box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+   }
+
+
+   @media (max-width:600px){
+    .buttons{
+        width: 150px;
+        height: 58px;
+        font-size: 18px;
+    }
+   }
+
+  

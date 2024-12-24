@@ -10,7 +10,6 @@ function Pageinicial() {
   };
 
   return (
-    <div className={Styles.containerpage}>
       <div className={Styles.containelemntespages}>
         <div className={Styles.containtextopageinicial}>
           <h1 className={Styles.textopage}>
@@ -22,7 +21,6 @@ function Pageinicial() {
         <button className={Styles.buttonpageinicial} onClick={handleNavigateToAbout}>Criar meu currículo</button>
         <img className={Styles.imgpageinicial} src="./images/image-curriculo.png" alt="imagem de curriculo exemplo" />
       </div>
-    </div>
   );
 }
 

@@ -23,7 +23,10 @@
 }
 
 @media (max-width:500px) {
-    .logoimg, .socialmedia{
-        width: 30px;
+    .logoimg{
+        width: 50px;
+    }
+    .socialmedia{
+        width: 31px;
     }
 }

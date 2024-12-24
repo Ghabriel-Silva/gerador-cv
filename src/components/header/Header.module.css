@@ -23,10 +23,9 @@
 }
 
 @media (max-width:500px) {
-    .logoimg{
-        width: 50px;
+    .logoimg, .socialmedia{
+        width: 38px;
     }
-    .socialmedia{
-        width: 31px;
-    }
+
+    
 }

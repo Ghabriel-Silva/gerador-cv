@@ -12,12 +12,19 @@ const Experience = () => {
        navigatetoPage(navigate, '/about')
     }
 
+    const HanfleNavigateToFormation = ()=>{
+      navigatetoPage(navigate, "/formation")
+    }
     
   return (
     <div className={Styles.Experiencecontain}>
-      <DynamicComponent title={"Experiência"} text={"Comece pelo seu trabalho recente, Você também pode adicionar trabalho voluntário, estágios ou atividades extracurriculares."}/>
+      <DynamicComponent 
+      title={"Experiência"} 
+      text={"Comece pelo seu trabalho recente, Você também pode adicionar trabalho voluntário, estágios ou atividades extracurriculares."}
+      />
       <DynamicButtons 
       voltar={handleNavigateToAbout}
+      avancar={HanfleNavigateToFormation}
       />
     </div>
   )

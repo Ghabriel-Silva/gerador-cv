@@ -13,6 +13,10 @@ const navigate = useNavigate()
  const handleNavigateToExperience = ()=>{
     navigatetoPage(navigate, '/experience')
  }
+
+ const handleNavigateTodados = ()=>{
+  navigatetoPage(navigate, '/handledados')
+}
  
   return (
     <div className={Styles.containformation}>
@@ -22,6 +26,7 @@ const navigate = useNavigate()
 
       <DynamicButtons
        voltar={handleNavigateToExperience}
+       avancar={handleNavigateTodados}
      />
     </div>
   )

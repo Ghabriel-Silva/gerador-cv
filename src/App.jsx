@@ -9,6 +9,7 @@ import Experience from "./pages/experience/Experience";
 import Formation from "./pages/fomation/Formation";
 
 
+
 function App() {
   return (
     <div className="containerglobal">

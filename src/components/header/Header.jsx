@@ -6,7 +6,7 @@ function Header () {
   const linkedinNome = `https://www.linkedin.com/in/${likedinNome}`
   
 
-  const whatsappNumber = "45991223366"; // Coloque o número no formato internacional
+  const whatsappNumber = "45991223366"; 
   const message = "Olá, gostaria de saber mais sobre o gerador de curriculo!";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 

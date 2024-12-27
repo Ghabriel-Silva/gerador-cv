@@ -14,8 +14,8 @@ const navigate = useNavigate()
     navigatetoPage(navigate, '/experience')
  }
 
- const handleNavigateTodados = ()=>{
-  navigatetoPage(navigate, '/handledados')
+ const handleNavigateToskills = ()=>{
+  navigatetoPage(navigate, '/skills')
 }
  
   return (
@@ -26,7 +26,7 @@ const navigate = useNavigate()
 
       <DynamicButtons
        voltar={handleNavigateToExperience}
-       avancar={handleNavigateTodados}
+       avancar={handleNavigateToskills}
      />
     </div>
   )

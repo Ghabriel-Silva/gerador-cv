@@ -1,4 +1,4 @@
-import Styles from '../sobre/About.module.css'
+import Styles from '../../components/styleform/StylesForm.module.css'
 import { useNavigate } from 'react-router-dom'
 import { navigatetoPage } from "../../utils";
 
@@ -17,14 +17,14 @@ const About = () => {
       navigatetoPage(navigate, '/experience')
     }
   return (
-    <div className={Styles.containerabout}>
+    <div className={Styles.containerComponents}>
       <DynamicComponent 
       title={"Dados pessoais"} 
       text={"Eles permitem que os empregadores vejam como podem entrar em contato com você."}
       />
 
       <form className={Styles.formcontain}>
-        <div className='info1'>
+        <div >
           <div className={Styles.inputGroup}>
               <input  id="name" type="text" name='nome' required autocomplete="name"/>
               <label htmlFor="name">Nome</label>
@@ -41,7 +41,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className='info2'>
+        <div>
           <div className={Styles.inputGroup}>
               <input id='cidade' type="text" name='cidade'  required autocomplete="address-level2 "/>
               <label htmlFor="cidade">Cidade</label>
@@ -58,9 +58,6 @@ const About = () => {
           </div>
         </div>
       </form>
-
-
-
 
       < DynamicButtons 
       avancar={ handleNavigatetoExperience} 

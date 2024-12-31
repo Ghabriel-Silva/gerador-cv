@@ -20,14 +20,30 @@
 }
 
 
+
+.inputGroupdate input{
+  border: 2px solid transparent;
+  width: 15em;
+  font-size: 100%;
+  padding: 1.1em;
+  outline: none;
+  border-radius: 12px;
+  transition: all 0.5s;
+  border: 2px solid rgb(200, 200, 200);
+}
+.inputGroupdate input:hover,
+.inputGroupdate input:focus {
+  border: 2px solid #4a9dec;
+  box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+  background-color: white
+}
+
 .inputGroup {
     
     font-family: var(--Font-pages);
     margin: 1em 0 1em 0;
     width: 450px;
     position: relative;
-    
-   
   }
   
   .inputGroup input {
@@ -39,6 +55,8 @@
     border-radius: 12px;
     width: 100%;
   }
+  
+
   
   .inputGroup label {
     font-size: 100%;
@@ -68,11 +86,19 @@
     .inputGroup{
         width: 280px;
     }
+    .inputGroupdate input{
+      width: 135px;
+    }
   }
 
   @media (max-width:350px ){
     .inputGroup{
         width: 220px;
+    }
+    .inputGroupdate input{
+      width: 105px;
+      color: blueviolet;
+      size: 100px;
     }
   }
 
@@ -84,4 +110,13 @@
   
 
   
-  
+  .flatpickrcalendar {
+    border: 2px solid transparent;
+    width: 15em;
+    font-size: 100%;
+    padding: 1.1em;
+    outline: none;
+    border-radius: 12px;
+    transition: all 0.5s;
+    border: 2px solid rgb(200, 200, 200);
+  }

@@ -26,37 +26,38 @@ const About = () => {
       <form className={Styles.formcontain}>
         <div >
           <div className={Styles.inputGroup}>
-              <input  id="name" type="text" name='nome' required autocomplete="name"/>
+              <input  id="name" type="text" name='nome' required autoComplete="name" />
               <label htmlFor="name">Nome</label>
           </div>
 
           <div className={Styles.inputGroup}>
-              <input id='sobrenome' type="text" name='sobrenome' required autocomplete="family-name"/>
+              <input id='sobrenome' type="text" name='sobrenome' required autoComplete="family-name"/>
               <label htmlFor="sobrenome">Sobrenome</label>
           </div>
 
           <div className={Styles.inputGroup}>
-              <input id='telefone' type="tel" name='telefone'  required autocomplete="tel"/>
+              <input id='telefone' type="tel" name='telefone'  required autoComplete="tel"/>
               <label htmlFor="telefone">Telefone</label>
           </div>
         </div>
 
         <div>
           <div className={Styles.inputGroup}>
-              <input id='cidade' type="text" name='cidade'  required autocomplete="address-level2 "/>
+              <input id='cidade' type="text" name='cidade'  required autoComplete="address-level2 "/>
               <label htmlFor="cidade">Cidade</label>
           </div>
 
           <div className={Styles.inputGroup}>
-              <input id='cep' type="text" name='cep'  required autocomplete="postal-code" maxLength={9}/>
+              <input id='cep' type="text" name='cep'  required autoComplete="postal-code" maxLength={9}/>
               <label htmlFor="cep">Cep</label>
           </div>
 
           <div className={Styles.inputGroup}>
-              <input id='email' type="email" name='email'  required autocomplete="email"/>
+              <input id='email' type="email" name='email'  required autoComplete="email"/>
               <label htmlFor="email">E-mail</label>
           </div>
         </div>
+      
       </form>
 
       < DynamicButtons 

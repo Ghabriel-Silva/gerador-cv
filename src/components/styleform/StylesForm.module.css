@@ -11,35 +11,29 @@
 
 
   .formcontain{
+    max-width: 1100px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     gap:20px ;
 }
 
 
-
-.inputGroupdate input{
-  border: 2px solid transparent;
-  width: 15em;
-  font-size: 100%;
-  padding: 1.1em;
-  outline: none;
-  border-radius: 12px;
-  transition: all 0.5s;
-  border: 2px solid rgb(200, 200, 200);
+.inputparagafo{
+  font-family: var(--Font-pages);
+  font-size: 16px;
+  color: var(--color-all-text-pages);
+  margin-left: 13px;
 }
-.inputGroupdate input:hover,
-.inputGroupdate input:focus {
-  border: 2px solid #4a9dec;
-  box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
-  background-color: white
+
+.customFlatpickr{
+  font-family: var(--Font-pages);
+  color: var(--color-all-text-pages);
 }
 
 .inputGroup {
-    
     font-family: var(--Font-pages);
     margin: 1em 0 1em 0;
     width: 450px;
@@ -82,6 +76,24 @@
     border-color: var(--color-button-all-pages);
   }
 
+
+
+/*Estilo check box*/
+.inputGroupckeckbox{
+  display: flex;
+  justify-content: start;
+   width: 450px;
+   font-size: 100%;
+    padding: 1.1em;
+    outline: none;
+    border:none;
+    width: 100%;
+     gap: 10px;
+}
+
+
+
+
   @media (max-width:500px ){
     .inputGroup{
         width: 280px;
@@ -109,14 +121,4 @@
   }
   
 
-  
-  .flatpickrcalendar {
-    border: 2px solid transparent;
-    width: 15em;
-    font-size: 100%;
-    padding: 1.1em;
-    outline: none;
-    border-radius: 12px;
-    transition: all 0.5s;
-    border: 2px solid rgb(200, 200, 200);
-  }
+ 

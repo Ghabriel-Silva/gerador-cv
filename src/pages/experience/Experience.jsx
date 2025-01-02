@@ -13,7 +13,7 @@ import {navigatetoPage} from "..//../utils"
 import { useNavigate } from "react-router-dom"
 
 
-const Experience = () => {
+const Experience = ({dadosForm, setDadosForm}) => {
     const navigate = useNavigate()
 
     const handleNavigateToAbout = ()=>{
@@ -24,6 +24,16 @@ const Experience = () => {
       navigatetoPage(navigate, "/formation")
     }
     const [dateRange, setDateRange] = useState([]);
+
+
+    const handleToformAbout = (e)=>{
+      const {name, value}= e.target
+      setDadosForm((prev)=>({
+        ...prev, [name] : value
+      }))
+    
+    }
+    
     
     
   return (
@@ -35,12 +45,26 @@ const Experience = () => {
       <form className={Styles.formcontain}>
           <div >
             <div className={Styles.inputGroup}>
-                <input  id="cargo" type="text" name='cargo' required />
+                <input 
+                 id="cargo"
+                  type="text"
+                  name='cargo' 
+                  value={dadosForm.cargo}
+                  required 
+                  onChange={handleToformAbout}
+                />
                 <label htmlFor="cargo">Cargo</label>
             </div>
 
             <div className={Styles.inputGroup}>
-                <input id='empregador' type="text" name='empregador' required />
+                <input 
+                id='empregador'
+                 type="text"
+                  name='empregador'
+                  value={dadosForm.empregador}
+                   required 
+                   onChange={handleToformAbout}
+                />
                 <label htmlFor="empregador">Empregador</label>
             </div>
 
@@ -63,22 +87,49 @@ const Experience = () => {
 
           <div>
             <div className={Styles.inputGroup}>
-                <input id='cidade' type="text" name='experienCiacidade'  required />
+                <input
+                 id='cidade' 
+                 type="text" 
+                 name='cidade'  
+                 required 
+                 value={dadosForm.cidade}
+                 onChange={handleToformAbout}
+                />
                 <label htmlFor="experienciacidade">Cidade</label>
             </div>
 
             <div className={Styles.inputGroup}>
-                <input id='experienciaestado' type="text" name='experienciaEstado'  required  />
-                <label htmlFor="experienciaestado">Cep</label>
+                <input
+                 id='experienciaestado' 
+                 type="text" 
+                 name='estado' 
+                  required 
+                  value={dadosForm.estado}
+                 onChange={handleToformAbout}
+                 />
+                <label htmlFor="experienciaestado">Estado</label>
             </div>
 
             <div  className={Styles.inputGroupckeckbox}>
-              <input type="checkbox" id='experienciaatual'  name='Experienciaatual' />
+              <input 
+                type="checkbox"
+                id='trabalhoatual'
+                name='Experienciaatual'
+                value={dadosForm.trabalhoatual}
+                onChange={handleToformAbout}
+              />
               <label htmlFor="experienciaatual">Trabalho atualmente aqui</label>
             </div>
           </div>
             <div className={`${Styles.inputGroup}`}  >
-            <input id='experienciadescricao' type="tel" name='experienciaDescricao'  required />
+            <input 
+              id='experienciadescricao' 
+              type="tel"
+              name="descricaovaga"
+              required 
+              value={dadosForm. descricaovaga}
+                onChange={handleToformAbout}
+            />
             <label htmlFor="experienciadescricao">Descrição da vaga</label>
         </div>
       </form>

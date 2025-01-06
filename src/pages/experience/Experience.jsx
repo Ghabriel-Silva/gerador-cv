@@ -38,10 +38,10 @@ const Experience = ({dadosForm, setDadosForm}) => {
         cargo: '',
         empregador: '',
         inicioexp: '', 
-        finaloexp: '', 
+        finalexp: '', 
         cidade: '', 
         estado: '', 
-        trabalhoatual: false ,
+        trabalhoatual: '',
         descricaovaga: '',
       })
       setDadosForm((prev)=>({
@@ -54,11 +54,18 @@ const Experience = ({dadosForm, setDadosForm}) => {
     // Pegar valores do formulario 
     const pegaValorInput = (e, id)=>{
       const {name, value, type, checked} = e.target
+    
       setDadosForm((prev)=>({
         ...prev, 
-        experiencia: prev.experiencia.map((exp)=>
-        exp.id === id ? {...exp, [name]: type === 'checkbox' ? checked : value} : exp
-        ),
+        experiencia:prev.experiencia.map((exp)=>{
+          if(exp.id === id){
+            if(name ==="trabalhoatual"){
+              return {...exp, [name]: checked, trabalhoatual : checked ? "Sim" : "Não"};
+            }
+             return {...exp, [name]: type === "checkbox" ? checked : value}
+          }
+          return exp ;
+        })   
       }))
     }
 
@@ -106,23 +113,22 @@ const Experience = ({dadosForm, setDadosForm}) => {
                 />
                 <label>Empregador</label>
             </div>
-
+            <p>inicio/Fim</p>
             <div className={Styles.date}>
               <div className={Styles.inputGroup} >
               <input
                    type="date"
                     name='inicioexp'
                     value={exp.inicioexp}
-                     required
                      onChange={(e)=>pegaValorInput(e, exp.id)}
                 />
               </div>
               <div className={Styles.inputGroup} >
               <input
                    type="date"
-                    name='inicioexp'
-                    value={exp.finaloexp}
-                     required
+                    name='finalexp'
+                    value={exp.finalexp}
+                     
                      onChange={(e)=>pegaValorInput(e, exp.id)}
                 />
               </div>

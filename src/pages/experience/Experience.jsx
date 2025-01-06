@@ -1,19 +1,20 @@
 import Styles from '../../components/styleform/StylesForm.module.css'
 import DynamicComponent from "../../components/dynamiccomponent/DynamicComponent"
 import DynamicButtons from "../../components/dinamicbuttons/DynamicButtons"
-import { CiCirclePlus } from "react-icons/ci";
+import Buttonadd from '../../components/buttonadd/Buttonadd';
+import Buttonremove from '../../components/buttonremove/Buttonremove';
 
 
 import React, { useState } from "react";
-import Flatpickr from "react-flatpickr"; // Componente React do Flatpickr
 import "flatpickr/dist/flatpickr.min.css"; 
-import { Portuguese } from "flatpickr/dist/l10n/pt"; //importa a linguagem br
+
 
 import {navigatetoPage} from "..//../utils"
 import { useNavigate } from "react-router-dom"
 
 
 const Experience = ({dadosForm, setDadosForm}) => {
+
     const navigate = useNavigate()
 
     const handleNavigateToAbout = ()=>{
@@ -23,64 +24,108 @@ const Experience = ({dadosForm, setDadosForm}) => {
     const HanfleNavigateToFormation = ()=>{
       navigatetoPage(navigate, "/formation")
     }
-    const [dateRange, setDateRange] = useState([]);
+   
 
-
-    const handleToformAbout = (e)=>{
-      const {name, value}= e.target
+    //function adiciona experiencia no estado e no array experiencia
+    const addExpe = ()=>{
+      if(dadosForm.experiencia.length  >= 5 ){
+        alert('Você só pode adicionar no máximo 5 experiências.')
+        return;
+      }
+      
+      const newExp = () =>({
+        id: Math.floor(Math.random() * 10000),
+        cargo: '',
+        empregador: '',
+        inicioexp: '', 
+        finaloexp: '', 
+        cidade: '', 
+        estado: '', 
+        trabalhoatual: false ,
+        descricaovaga: '',
+      })
       setDadosForm((prev)=>({
-        ...prev, [name] : value
+        ...prev, 
+        experiencia: [...prev.experiencia, newExp()],
       }))
-    
     }
+
+
+    // Pegar valores do formulario 
+    const pegaValorInput = (e, id)=>{
+      const {name, value, type, checked} = e.target
+      setDadosForm((prev)=>({
+        ...prev, 
+        experiencia: prev.experiencia.map((exp)=>
+        exp.id === id ? {...exp, [name]: type === 'checkbox' ? checked : value} : exp
+        ),
+      }))
+    }
+
+    // remove formulário
+    const removeExp = (id)=>{
+      setDadosForm((prev)=>({
+        ...prev, 
+        experiencia: prev.experiencia.filter((exp)=> exp.id !== id)
+      }))
+    }
+
     
     
     
   return (
-    <div className={Styles.containerComponents}>
+    <div className={`${Styles.containerComponents} ${dadosForm.experiencia.length > 0 ? Styles.autoheight : ''}`}>
       <DynamicComponent 
       title={"Experiência"} 
       text={"Comece pelo seu trabalho recente, Você também pode adicionar trabalho voluntário, estágios ou atividades extracurriculares."}/>
 
-      <form className={Styles.formcontain}>
+
+      {dadosForm.experiencia.map((exp, index)=>(
+      <form key={exp.id} className={Styles.formcontain}>
+          <h3 className={Styles.indextext}>Experiencia {index + 1} </h3>
+
           <div >
             <div className={Styles.inputGroup}>
                 <input 
-                 id="cargo"
                   type="text"
                   name='cargo' 
-                  value={dadosForm.cargo}
+                  value={exp.cargo}
                   required 
-                  onChange={handleToformAbout}
+                  onChange={(e)=>pegaValorInput(e, exp.id)}
                 />
-                <label htmlFor="cargo">Cargo</label>
+                <label >Cargo</label>
             </div>
 
             <div className={Styles.inputGroup}>
                 <input 
-                id='empregador'
                  type="text"
                   name='empregador'
-                  value={dadosForm.empregador}
+                  value={exp.empregador}
                    required 
-                   onChange={handleToformAbout}
+                   onChange={(e)=>pegaValorInput(e, exp.id)}
                 />
-                <label htmlFor="empregador">Empregador</label>
+                <label>Empregador</label>
             </div>
 
-            <div className={Styles.inputGroup} >
-            <p className={Styles.inputparagafo}>Incio/Término</p>
-                <Flatpickr  
-                className={Styles.customFlatpickr} 
-                  options={{
-                    locale: Portuguese, //Define a linguagem
-                    mode: "range", // Define o modo de intervalo
-                    dateFormat: "d-m-y", // Formato da data
-                  }}
-                  name='experiencidate'
-                  value={dateRange} // Valor selecionado
-                  onChange={(selectedDates) => setDateRange(selectedDates)} // Atualiza o estado
+            <div className={Styles.date}>
+              <div className={Styles.inputGroup} >
+              <input
+                   type="date"
+                    name='inicioexp'
+                    value={exp.inicioexp}
+                     required
+                     onChange={(e)=>pegaValorInput(e, exp.id)}
                 />
+              </div>
+              <div className={Styles.inputGroup} >
+              <input
+                   type="date"
+                    name='inicioexp'
+                    value={exp.finaloexp}
+                     required
+                     onChange={(e)=>pegaValorInput(e, exp.id)}
+                />
+              </div>
             </div>
 
           </div>
@@ -88,51 +133,60 @@ const Experience = ({dadosForm, setDadosForm}) => {
           <div>
             <div className={Styles.inputGroup}>
                 <input
-                 id='cidade' 
+                
                  type="text" 
                  name='cidade'  
                  required 
-                 value={dadosForm.cidade}
-                 onChange={handleToformAbout}
+                 value={exp.cidade}
+                 onChange={(e)=>pegaValorInput(e, exp.id)}
                 />
-                <label htmlFor="experienciacidade">Cidade</label>
+                <label >Cidade</label>
             </div>
 
             <div className={Styles.inputGroup}>
                 <input
-                 id='experienciaestado' 
+                 
                  type="text" 
                  name='estado' 
                   required 
-                  value={dadosForm.estado}
-                 onChange={handleToformAbout}
+                  value={exp.estado}
+                  onChange={(e)=>pegaValorInput(e, exp.id)}
                  />
-                <label htmlFor="experienciaestado">Estado</label>
+                <label >Estado</label>
             </div>
 
             <div  className={Styles.inputGroupckeckbox}>
               <input 
                 type="checkbox"
-                id='trabalhoatual'
-                name='Experienciaatual'
-                value={dadosForm.trabalhoatual}
-                onChange={handleToformAbout}
+                name='trabalhoatual'
+               checked={exp.trabalhoatual}
+               onChange={(e)=>pegaValorInput(e, exp.id)}
               />
-              <label htmlFor="experienciaatual">Trabalho atualmente aqui</label>
+              <label >Trabalho atualmente aqui</label>
             </div>
           </div>
-            <div className={`${Styles.inputGroup}`}  >
-            <input 
-              id='experienciadescricao' 
-              type="tel"
-              name="descricaovaga"
-              required 
-              value={dadosForm. descricaovaga}
-                onChange={handleToformAbout}
-            />
-            <label htmlFor="experienciadescricao">Descrição da vaga</label>
-        </div>
+
+          <div className={Styles.descricaovaga}>
+            <div className={`${Styles.inputGroup} `}  >
+              <input
+                type="text"
+                name="descricaovaga"
+                required
+                value={exp.descricaovaga}
+                onChange={(e)=>pegaValorInput(e, exp.id)}
+              />
+              <label >Descrição da vaga</label>
+            </div>
+            <Buttonremove removeForm={()=>removeExp(exp.id)} />
+          </div>
+       
       </form>
+      ))}
+
+    <Buttonadd addNewForm={addExpe} />
+      
+
+
 
 
       <DynamicButtons 

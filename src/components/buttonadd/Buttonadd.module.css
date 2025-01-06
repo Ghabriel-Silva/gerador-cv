@@ -1,0 +1,23 @@
+/* From Uiverse.io by felipesntr */ 
+.buttonadd button {
+  margin:20px 0 40px;
+  border: 2px solid rgb(20, 206, 20);
+  background-color:rgb(41, 165, 41);
+  border-radius: 0.9em;
+  cursor: pointer;
+  padding: 0.8em 1.2em 0.8em 1em;
+  transition: all ease-in-out 0.2s;
+  font-size: 16px;
+}
+
+.buttonadd button span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+}
+
+.buttonadd button:hover {
+  background-color: rgb(20, 206, 20);
+}

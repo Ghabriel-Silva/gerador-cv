@@ -8,8 +8,11 @@
     height: 100vh;
     justify-content: space-between;
   }
+  .autoheight{
+    height: auto;
+  }
 
-
+  
   .formcontain{
     max-width: 1100px;
     width: 100%;
@@ -91,14 +94,37 @@
      gap: 10px;
 }
 
+.date{
+  display: flex;
+  justify-content: space-between;
 
+}
+.date .inputGroup{
+  width: 210px;
+}
+
+.descricaovaga{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.indextext{
+  margin: 20px 0;
+  color: var(--color-text-1-page-home);
+  width: 100vw;
+  text-align: center;
+  font-family: var(--Font-pages);
+}
 
 
   @media (max-width:500px ){
     .inputGroup{
         width: 280px;
     }
-    .inputGroupdate input{
+    
+
+    .date .inputGroup{
       width: 135px;
     }
   }
@@ -107,10 +133,8 @@
     .inputGroup{
         width: 220px;
     }
-    .inputGroupdate input{
+    .date .inputGroup{
       width: 105px;
-      color: blueviolet;
-      size: 100px;
     }
   }
 

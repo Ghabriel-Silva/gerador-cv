@@ -25,13 +25,7 @@ const [dadosForm, setDadosForm] = useState({
   cep: "",
   telefone: "",
   email: "",
-  cargo:"",
-  empregador:"", 
-  incioTermino:"", 
-  cidade:"",
-  estado:"", 
-  trabalhoatual:"", 
-  descricaovaga:"", 
+  experiencia: [],
 
 
 })

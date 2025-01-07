@@ -41,7 +41,7 @@ const Experience = ({dadosForm, setDadosForm}) => {
         finalexp: '', 
         cidade: '', 
         estado: '', 
-        trabalhoatual: '',
+        trabalhoatual: false,
         descricaovaga: '',
       })
       setDadosForm((prev)=>({
@@ -52,21 +52,20 @@ const Experience = ({dadosForm, setDadosForm}) => {
 
 
     // Pegar valores do formulario 
-    const pegaValorInput = (e, id)=>{
-      const {name, value, type, checked} = e.target
+    const pegaValorInput = (e, id) => {
+      const { name, value, type, checked } = e.target;
     
-      setDadosForm((prev)=>({
-        ...prev, 
-        experiencia:prev.experiencia.map((exp)=>{
-          if(exp.id === id){
-            if(name ==="trabalhoatual"){
-              return {...exp, [name]: checked, trabalhoatual : checked ? "Sim" : "Não"};
-            }
-             return {...exp, [name]: type === "checkbox" ? checked : value}
-          }
-          return exp ;
-        })   
-      }))
+      setDadosForm((prev) => ({
+        ...prev,
+        experiencia: prev.experiencia.map((exp) =>
+          exp.id === id
+            ? {
+                ...exp,
+                [name]: type === "checkbox" ? checked : value,
+              }
+            : exp
+        ),
+      }));
     }
 
     // remove formulário
@@ -113,13 +112,14 @@ const Experience = ({dadosForm, setDadosForm}) => {
                 />
                 <label>Empregador</label>
             </div>
-            <p>inicio/Fim</p>
+            <p>Inicio/Fim</p>
             <div className={Styles.date}>
               <div className={Styles.inputGroup} >
               <input
                    type="date"
                     name='inicioexp'
                     value={exp.inicioexp}
+                    required 
                      onChange={(e)=>pegaValorInput(e, exp.id)}
                 />
               </div>
@@ -128,8 +128,14 @@ const Experience = ({dadosForm, setDadosForm}) => {
                    type="date"
                     name='finalexp'
                     value={exp.finalexp}
-                     
+                    required 
                      onChange={(e)=>pegaValorInput(e, exp.id)}
+                     disabled={exp.trabalhoatual}
+                    style={
+                      exp.trabalhoatual
+                      ? { textDecoration: "line-through", color: "#999", backgroundColor: "#f5f5f5", pointerEvents: "none" }
+                      : {}
+                    }
                 />
               </div>
             </div>
@@ -154,7 +160,7 @@ const Experience = ({dadosForm, setDadosForm}) => {
                  
                  type="text" 
                  name='estado' 
-                  required 
+                 required 
                   value={exp.estado}
                   onChange={(e)=>pegaValorInput(e, exp.id)}
                  />
@@ -164,11 +170,13 @@ const Experience = ({dadosForm, setDadosForm}) => {
             <div  className={Styles.inputGroupckeckbox}>
               <input 
                 type="checkbox"
+                 required 
                 name='trabalhoatual'
                checked={exp.trabalhoatual}
                onChange={(e)=>pegaValorInput(e, exp.id)}
               />
-              <label >Trabalho atualmente aqui</label>
+              <label >Trabalho atualmente aqui:</label>
+              <p className={Styles.checkboxtruorfalse}> {exp.trabalhoatual ? 'Sim' : 'Não'} </p>
             </div>
           </div>
 

@@ -103,6 +103,7 @@
   width: 210px;
 }
 
+
 .descricaovaga{
   display: flex;
   flex-direction: column;
@@ -117,6 +118,13 @@
   font-family: var(--Font-pages);
 }
 
+
+.checkboxtruorfalse{
+  color: var(--color-all-text-pages);
+  font-family: var(--Font-pages);
+  font-weight: bold;
+  font-size: 14px;
+}
 
   @media (max-width:500px ){
     .inputGroup{

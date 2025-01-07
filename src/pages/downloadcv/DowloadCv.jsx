@@ -19,10 +19,10 @@ const DownloadCV = ({ dadosForm }) => {
               <p>Cargo: {exp.cargo || "N/A"}</p>
               <p>Empregador: {exp.empregador|| "N/A"}</p>
               <p>Inicio: {exp.inicioexp || "N/A"}</p>
-              <p>Termino: {exp.finalexp || "N/A"}</p>
+              {!exp.trabalhoatual && exp.finalexp && <p> Final: {exp.finalexp} </p> }
               <p>Cidade: {exp.cidade || "N/A"}</p>
               <p>Estado: {exp.estado || "N/A"}</p>
-              <p>Trabalho atual: {exp.trabalhoatual || "N/A"}</p>
+              <p>Trabalho atual: {exp.trabalhoatual ? 'Sim' : 'Não'}</p>
               <p>Descrição da vaga: {exp.descricaovaga || "N/A"}</p>
             </div>
           ))}

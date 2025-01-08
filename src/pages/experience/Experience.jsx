@@ -11,6 +11,7 @@ import "flatpickr/dist/flatpickr.min.css";
 
 import {navigatetoPage} from "..//../utils"
 import { useNavigate } from "react-router-dom"
+import InputMask from 'react-input-mask';
 
 
 const Experience = ({dadosForm, setDadosForm}) => {
@@ -112,29 +113,30 @@ const Experience = ({dadosForm, setDadosForm}) => {
                 />
                 <label>Empregador</label>
             </div>
-            <p>Inicio/Fim</p>
             <div className={Styles.date}>
               <div className={Styles.inputGroup} >
-              <input
-                   type="date"
-                    name='inicioexp'
-                    value={exp.inicioexp}
-                    required 
-                     onChange={(e)=>pegaValorInput(e, exp.id)}
+              <InputMask
+                  mask={'99/99/9999'}
+                  placeholder="Data inicial"
+                  name='inicioexp'
+                  value={exp.inicioexp}
+                  required 
+                  onChange={(e)=>pegaValorInput(e, exp.id)}
                 />
               </div>
               <div className={Styles.inputGroup} >
-              <input
-                   type="date"
-                    name='finalexp'
-                    value={exp.finalexp}
-                    required 
-                     onChange={(e)=>pegaValorInput(e, exp.id)}
-                     disabled={exp.trabalhoatual}
-                    style={
-                      exp.trabalhoatual
-                      ? { textDecoration: "line-through", color: "#999", backgroundColor: "#f5f5f5", pointerEvents: "none" }
-                      : {}
+              <InputMask
+                 mask={'99/99/9999'}
+                  placeholder="Data inicial"
+                  name='finalexp'
+                  value={exp.finalexp}
+                  required 
+                  onChange={(e)=>pegaValorInput(e, exp.id)}
+                  disabled={exp.trabalhoatual}
+                  style={
+                    exp.trabalhoatual
+                    ? { textDecoration: "line-through", color: "#999", backgroundColor: "#f5f5f5", pointerEvents: "none" }
+                    : {}
                     }
                 />
               </div>
@@ -142,10 +144,9 @@ const Experience = ({dadosForm, setDadosForm}) => {
 
           </div>
 
-          <div>
+          <div >
             <div className={Styles.inputGroup}>
                 <input
-                
                  type="text" 
                  name='cidade'  
                  required 
@@ -157,7 +158,6 @@ const Experience = ({dadosForm, setDadosForm}) => {
 
             <div className={Styles.inputGroup}>
                 <input
-                 
                  type="text" 
                  name='estado' 
                  required 
@@ -175,7 +175,7 @@ const Experience = ({dadosForm, setDadosForm}) => {
                checked={exp.trabalhoatual}
                onChange={(e)=>pegaValorInput(e, exp.id)}
               />
-              <label >Trabalho atualmente aqui:</label>
+              <label >Trabalho atual:</label>
               <p className={Styles.checkboxtruorfalse}> {exp.trabalhoatual ? 'Sim' : 'Não'} </p>
             </div>
           </div>

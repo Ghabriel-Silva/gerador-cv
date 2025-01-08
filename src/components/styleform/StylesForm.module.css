@@ -24,6 +24,7 @@
 }
 
 
+
 .inputparagafo{
   font-family: var(--Font-pages);
   font-size: 16px;
@@ -83,24 +84,26 @@
 
 /*Estilo check box*/
 .inputGroupckeckbox{
-  display: flex;
-  justify-content: start;
-   width: 450px;
-   font-size: 100%;
-    padding: 1.1em;
-    outline: none;
+    display: flex;
+    justify-content: start;
+    width: 450px;
+    font-size: 100%;
+    padding: 1.1em 0 ;
     border:none;
     width: 100%;
-     gap: 10px;
+    gap: 10px;
 }
 
 .date{
   display: flex;
   justify-content: space-between;
+   
 
 }
 .date .inputGroup{
   width: 210px;
+  margin: 0; 
+  padding: 0; 
 }
 
 
@@ -126,6 +129,25 @@
   font-size: 14px;
 }
 
+
+.inputdropdown{
+  
+  font-family: var(--Font-pages);
+  margin: 1em 0 1em 0;
+}
+
+.inputdropdown select {
+
+    font-size: 100%;
+    padding: 0.8em;
+    outline: none;
+    border: 2px solid rgb(200, 200, 200);
+    background-color: transparent;
+    border-radius: 12px;
+    width: 100%;
+  }
+
+
   @media (max-width:500px ){
     .inputGroup{
         width: 280px;
@@ -146,7 +168,7 @@
     }
   }
 
-  @media (max-width:1021px){
+  @media (max-width:899px){
     .formcontain{
       gap: 0;
     }

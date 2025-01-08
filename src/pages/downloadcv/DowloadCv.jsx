@@ -27,8 +27,6 @@ const DownloadCV = ({ dadosForm }) => {
             </div>
           ))}
         </div>
-
-      
     </div>
   );
 };

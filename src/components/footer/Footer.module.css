@@ -1,5 +1,4 @@
 .footerContainer{
-    bottom: 0;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -12,3 +11,10 @@
     font-weight: 400;
     color: var(--color-all-text-pages);
 }
+
+@media (max-width:350px ){
+    .footerText{
+        font-size: 9px;
+    }
+   
+  }

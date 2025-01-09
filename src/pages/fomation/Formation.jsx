@@ -4,14 +4,16 @@ import DynamicButtons from "../../components/dinamicbuttons/DynamicButtons"
 
 import {navigatetoPage} from "..//../utils"
 import { useNavigate } from "react-router-dom"
-import InputMask from 'react-input-mask';
 
 
 import Styles from '../../components/styleform/StylesForm.module.css'
+
 import Buttonremove from "../../components/buttonremove/Buttonremove";
 
 
 const Formation = () => {
+
+
 const navigate = useNavigate()
 
  const handleNavigateToExperience = ()=>{
@@ -53,18 +55,18 @@ const navigate = useNavigate()
             </div>
             <div className={Styles.date}>
                 <div className={Styles.inputGroup} >
-                   <InputMask
+                   <input
+                  
                    name="incialfomation"
-                   mask={'99/99/9999'}
+                  
                    placeholder="Data inicial"
                   required
                    />
                 </div>
 
                 <div className={Styles.inputGroup} >
-                    <InputMask
+                    <input
                       name="finalfomation"
-                      mask={'99/99/9999'}
                       placeholder="Data Final"
                       required
                       />
@@ -86,8 +88,8 @@ const navigate = useNavigate()
            </div>
 
            <div className={Styles.inputdropdown}>
-                <select  name="tituloGraduacao" >
-                  <option value="" disabled selected hidden>Nível de formação</option>
+                <select  defaultValue={"option1"} name="tituloGraduacao" >
+                  <option value="option1"  hidden>Nível de formação</option>
                   <option value="diploma_ensino_medio">Diploma de Ensino Médio</option>
                   <option value="certificado">Certificado</option>
                   <option value="licenciatura">Licenciatura</option>
@@ -100,8 +102,8 @@ const navigate = useNavigate()
            </div>
 
            <div className={Styles.inputdropdown}>
-            <select  name="Statusformation">
-              <option value={""} disabled selected hidden>Status</option>
+            <select  defaultValue={'option1'} name="Statusformation">
+              <option value={'option1'} hidden>Status</option>
               <option value="concluido">Concluido</option>
               <option value="cursando">Cursando</option>
               <option value="trancado">Trancado</option>

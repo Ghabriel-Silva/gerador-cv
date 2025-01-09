@@ -5,16 +5,22 @@ import Buttonadd from '../../components/buttonadd/Buttonadd';
 import Buttonremove from '../../components/buttonremove/Buttonremove';
 
 
-import React, { useState } from "react";
-import "flatpickr/dist/flatpickr.min.css"; 
+
+ 
 
 
 import {navigatetoPage} from "..//../utils"
 import { useNavigate } from "react-router-dom"
-import InputMask from 'react-input-mask';
+import { useRef } from 'react';
+
+
+
 
 
 const Experience = ({dadosForm, setDadosForm}) => {
+
+;
+
 
     const navigate = useNavigate()
 
@@ -115,8 +121,7 @@ const Experience = ({dadosForm, setDadosForm}) => {
             </div>
             <div className={Styles.date}>
               <div className={Styles.inputGroup} >
-              <InputMask
-                  mask={'99/99/9999'}
+              <input
                   placeholder="Data inicial"
                   name='inicioexp'
                   value={exp.inicioexp}
@@ -125,9 +130,8 @@ const Experience = ({dadosForm, setDadosForm}) => {
                 />
               </div>
               <div className={Styles.inputGroup} >
-              <InputMask
-                 mask={'99/99/9999'}
-                  placeholder="Data inicial"
+              <input
+                 placeholder="Data final"
                   name='finalexp'
                   value={exp.finalexp}
                   required 

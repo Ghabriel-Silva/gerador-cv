@@ -43,6 +43,14 @@
     width: 450px;
     position: relative;
   }
+
+  .inputDelete{
+     margin: 1em 0 1em 0;
+    width: 450px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
   
   .inputGroup input {
     font-size: 100%;
@@ -152,10 +160,12 @@
     .inputGroup{
         width: 280px;
     }
-    
-
     .date .inputGroup{
       width: 135px;
+    }
+
+    .inputdropdown select{
+      font-size: 14px;
     }
   }
 

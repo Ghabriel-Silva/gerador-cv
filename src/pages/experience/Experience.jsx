@@ -11,7 +11,8 @@ import Buttonremove from '../../components/buttonremove/Buttonremove';
 
 import {navigatetoPage} from "..//../utils"
 import { useNavigate } from "react-router-dom"
-import { useRef } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 
@@ -41,7 +42,7 @@ const Experience = ({dadosForm, setDadosForm}) => {
       }
       
       const newExp = () =>({
-        id: Math.floor(Math.random() * 10000),
+        id: uuidv4(),
         cargo: '',
         empregador: '',
         inicioexp: '', 
@@ -201,7 +202,7 @@ const Experience = ({dadosForm, setDadosForm}) => {
       </form>
       ))}
 
-    <Buttonadd addNewForm={addExpe} />
+    <Buttonadd addNewForm={addExpe}/>
       
 
 

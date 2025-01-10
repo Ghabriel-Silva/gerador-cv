@@ -2,6 +2,7 @@ import Styles from '../../components/styleform/StylesForm.module.css'
 import { useNavigate } from 'react-router-dom'
 import { navigatetoPage } from "../../utils";
 
+
 import DynamicButtons from '../../components/dinamicbuttons/DynamicButtons';
 import DynamicComponent from "../../components/dynamiccomponent/DynamicComponent";
 

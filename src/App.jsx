@@ -28,6 +28,7 @@ const [dadosForm, setDadosForm] = useState({
   email: "",
   experiencia: [],
   formation: [],
+  skilss: [],
 
 
 })
@@ -41,7 +42,7 @@ const [dadosForm, setDadosForm] = useState({
             <Route path="/about" element={<About  dadosForm={dadosForm}  setDadosForm={setDadosForm}/>} />
             <Route path="/experience" element={<Experience  dadosForm={dadosForm}  setDadosForm={setDadosForm}/>}/>
             <Route path="/formation" element={<Formation dadosForm={dadosForm} setDadosForm={setDadosForm} />}/>
-            <Route path="/skills" element={<Skills/>} />
+            <Route path="/skills" element={<Skills dadosForm={dadosForm} setDadosForm={setDadosForm} />} />
             <Route path="/idioma"  element={<Idioma/>} />
             <Route path="/resumo" element={<Resumo/>} />
             <Route path="/sectionextra" element={<SectionExtra/>} />

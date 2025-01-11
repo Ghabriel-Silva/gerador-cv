@@ -2,7 +2,7 @@ import DynamicComponent from "../../components/dynamiccomponent/DynamicComponent
 import DynamicButtons from "../../components/dinamicbuttons/DynamicButtons"
 
 
-import {navigatetoPage, formatDate} from "..//../utils"
+import {navigatetoPage, formatDate, deleimitaArray} from "..//../utils"
 
 
 
@@ -36,12 +36,11 @@ const navigate = useNavigate()
 // function add novaexperiencia ao clicar no botão
 
 const addFormation  = ()=>{
-  if(dadosForm.formation.length >= 5){
-    alert('Você só pode adicionar no máximo 5 Formação.')
-    return;
-  }
+  
+   if (deleimitaArray(dadosForm, "formation", 5 , "Formação") !== true)  return;
+
   const newFormation = () => ({
-    id: uuidv4(), //Usando UUIDv4 para gerar um ID único, valores unicos e escalveis 
+    id: uuidv4(), //Usando UUIDv4 para gerar um ID único
     instituicao: "", 
     cursoname: "",
     incialfomation: "",
@@ -192,7 +191,7 @@ const removefomation = (id)=>{
 
           </div>
 
-          <div className={Styles.inputDelete}>
+          <div  className={Styles.descricaovaga}>
             <Buttonremove removeForm={(e)=>removefomation(forma.id)} />
           </div>
 
@@ -203,7 +202,7 @@ const removefomation = (id)=>{
 
 
 
-        <Buttonadd addNewForm={addFormation}/>
+        <Buttonadd addNewForm={addFormation} name={"Formação"}/>
       
         <DynamicButtons
         voltar={handleNavigateToExperience}

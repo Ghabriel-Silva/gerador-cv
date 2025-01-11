@@ -43,6 +43,18 @@ const DownloadCV = ({ dadosForm }) => {
             </div>
           ))}
         </div>
+
+        <div>
+        <h3>Habilidades </h3>
+          {dadosForm.skilss.map((habil)=>(
+            <div key={habil.id}>
+              <div>
+                <p> {habil.habilidades} </p>
+                <p> {habil.nivelhabilidade} </p>
+              </div>  
+            </div>
+          ))}
+        </div>
     </div>
 
   );

@@ -9,7 +9,7 @@ import Buttonremove from '../../components/buttonremove/Buttonremove';
  
 
 
-import {navigatetoPage, formatDate} from "..//../utils"
+import {navigatetoPage, formatDate, deleimitaArray} from "..//../utils"
 import { useNavigate } from "react-router-dom"
 import { v4 as uuidv4 } from 'uuid';
 
@@ -36,11 +36,9 @@ const Experience = ({dadosForm, setDadosForm}) => {
 
     //function adiciona experiencia no estado e no array experiencia
     const addExpe = ()=>{
-      if(dadosForm.experiencia.length  >= 5 ){
-        alert('Você só pode adicionar no máximo 5 experiências.')
-        return;
-      }
       
+   if(deleimitaArray(dadosForm, 'experiencia', 5, "Experiencia" ) !== true) return;
+   
       const newExp = () =>({
         id: uuidv4(),
         cargo: '',
@@ -208,12 +206,8 @@ const Experience = ({dadosForm, setDadosForm}) => {
       </form>
       ))}
 
-    <Buttonadd addNewForm={addExpe}/>
+    <Buttonadd addNewForm={addExpe} name={"Experiencia"}/>
       
-
-
-
-
       <DynamicButtons 
       voltar={handleNavigateToAbout}
       avancar={HanfleNavigateToFormation}

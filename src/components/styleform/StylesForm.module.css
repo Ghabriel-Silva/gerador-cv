@@ -102,17 +102,27 @@
     gap: 10px;
 }
 
-.date{
+.date {
   display: flex;
   justify-content: space-between;
-   
 
+  height: 50px;
+  padding: 5px 0; /* Ajuste de preenchimento */
 }
-.date .inputGroup{
+
+.date .inputGroup {
   width: 210px;
-  margin: 0; 
-  padding: 0; 
+  margin: 0;
+  padding: 0;
+  
 }
+
+
+
+.date input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none; /* Oculta o ícone do calendário */
+}
+
 
 
 .descricaovaga{

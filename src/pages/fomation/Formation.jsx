@@ -2,9 +2,13 @@ import DynamicComponent from "../../components/dynamiccomponent/DynamicComponent
 import DynamicButtons from "../../components/dinamicbuttons/DynamicButtons"
 
 
-import {navigatetoPage} from "..//../utils"
-import { useNavigate } from "react-router-dom"
+import {navigatetoPage, formatDate} from "..//../utils"
+
+
+
+import {useNavigate } from "react-router-dom"
 import { v4 as uuidv4 } from 'uuid';
+
 
 
 
@@ -14,7 +18,9 @@ import Buttonremove from "../../components/buttonremove/Buttonremove";
 import Buttonadd from '../../components/buttonadd/Buttonadd';
 
 
+
 const Formation = ({dadosForm, setDadosForm}) => {
+  
 
 
 const navigate = useNavigate()
@@ -54,21 +60,25 @@ const addFormation  = ()=>{
   
 }
 
+// pegar valores do formulário e atribuir a uma nova variavel se for do tipo date baiscamente  
+const pegaValorInputFormation = (e, id) => {
+  const { name, value } = e.target;
+  let newValue = value;
 
-// pegar valores do formulário
-const pegaValorInputFormation = (e, id)=>{
+  // Se for campo de data, aplique a formatação da função, se não for n precisa apricar
+  if (name === "incialfomation" || name === "finalfomation") {
+    newValue = formatDate(value);
+  }
 
-
-const {name, value} = e.target
-setDadosForm((prev)=>({
-  ...prev, 
-  formation: prev.formation.map((forma)=>
-  forma.id === id 
-  ? {...forma, [name]: value} : forma
-
-  )
-}))
-}
+  
+  // Atualize o estado com a nova data formatada
+  setDadosForm((prev) => ({
+    ...prev,
+    formation: prev.formation.map((forma) =>
+      forma.id === id ? { ...forma, [name]: newValue } : forma
+    ),
+  }));
+};
 
 //remove valores
 
@@ -78,6 +88,8 @@ const removefomation = (id)=>{
     formation: prev.formation.filter((forma)=>forma.id !== id)
   }))
 }
+
+
 
 
   return (
@@ -118,6 +130,7 @@ const removefomation = (id)=>{
               <div className={Styles.date}>
                 <div className={Styles.inputGroup} >
                   <input
+                    type="tell"
                     value={forma.incialfomation}
                     name="incialfomation"
                     placeholder="Data inicial"
@@ -128,6 +141,7 @@ const removefomation = (id)=>{
 
                 <div className={Styles.inputGroup} >
                   <input
+                     type="tell"
                     value={forma.finalfomation}
                     name="finalfomation"
                     placeholder="Data Final"
@@ -152,9 +166,9 @@ const removefomation = (id)=>{
                 <label>Cidade</label>
             </div>
 
-            <div className={Styles.inputdropdown}>
-                <select   name="Statusformation" onChange={(e)=>pegaValorInputFormation(e, forma.id)}  value={forma.Statusformation}>
-                    <option value="option1"  hidden>Nível de formação</option>
+            <div className={Styles.inputdropdown}  onChange={(e)=>pegaValorInputFormation(e, forma.id)}  value={forma.tituloGraduacao}>
+                <select name="tituloGraduacao"  >
+                    <option value="option2"  hidden>Nível de formação</option>
                     <option value="diploma_ensino_medio">Diploma de Ensino Médio</option>
                     <option value="certificado">Certificado</option>
                     <option value="licenciatura">Licenciatura</option>

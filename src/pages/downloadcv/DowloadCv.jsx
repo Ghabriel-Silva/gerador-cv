@@ -27,7 +27,24 @@ const DownloadCV = ({ dadosForm }) => {
             </div>
           ))}
         </div>
+        
+
+        <div>
+          {dadosForm.formation.map((forma)=>(
+            <div key={forma.id}> 
+            <p>Instituição de ensino: {forma.instituicao} </p>
+            <p>Nome do curso:{forma.cursoname} </p>
+            <p>Inicio formação: {forma.incialfomation} </p>
+            <p>Término formação {forma.finalfomation} </p>
+            <p>Cidadade formação:{forma.formationcidade} </p>
+            <p>Nivel de formação:{forma.tituloGraduacao} </p>
+            <p>Status da formação: {forma.Statusformation} </p>
+            
+            </div>
+          ))}
+        </div>
     </div>
+
   );
 };
 

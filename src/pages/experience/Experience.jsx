@@ -9,7 +9,7 @@ import Buttonremove from '../../components/buttonremove/Buttonremove';
  
 
 
-import {navigatetoPage} from "..//../utils"
+import {navigatetoPage, formatDate} from "..//../utils"
 import { useNavigate } from "react-router-dom"
 import { v4 as uuidv4 } from 'uuid';
 
@@ -62,14 +62,20 @@ const Experience = ({dadosForm, setDadosForm}) => {
     // Pegar valores do formulario 
     const pegaValorInput = (e, id) => {
       const { name, value, type, checked } = e.target;
-    
+      let newValue = value;
+
+      // Se for campo de data, aplique a formatação da função, se não for n precisa apricar
+      if (name === "inicioexp" || name === "finalexp") {
+        newValue = formatDate(value);
+      }
+
       setDadosForm((prev) => ({
         ...prev,
         experiencia: prev.experiencia.map((exp) =>
           exp.id === id
             ? {
                 ...exp,
-                [name]: type === "checkbox" ? checked : value,
+                [name]: type === "checkbox" ? checked : newValue,
               }
             : exp
         ),

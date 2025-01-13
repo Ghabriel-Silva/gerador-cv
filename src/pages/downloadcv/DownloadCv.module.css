@@ -1,0 +1,92 @@
+/* Ajuste para evitar cortes de conteúdo */
+.curriculo {
+    width: 100%; /* Define largura dinâmica */
+    max-width: 800px; /* Define um limite de largura */
+    margin: 0 auto; /* Centraliza na tela */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: visible; /* Permite o conteúdo expandir */
+  }
+  
+  /* Permite que o conteúdo se adapte à tela */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    overflow-x: hidden; /* Evita barra de rolagem horizontal */
+  }
+  
+  /* Cabeçalho */
+  .header {
+    text-align: center;
+    border-bottom: 2px solid #1e3f34;
+    margin-bottom: 20px;
+  }
+  
+  .header .nome {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1e3f34;
+  }
+  
+  .header .contato {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  /* Títulos das seções */
+  h2 {
+    font-size: 18px;
+    color: #1e3f34;
+    border-left: 4px solid #1e3f34;
+    padding-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Seções */
+  section {
+    margin-bottom: 15px;
+  }
+  
+  section p, section ul {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .experienciaItem, .formacaoItem {
+    margin-bottom: 15px;
+  }
+  
+  /* Listas */
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  /* Habilidades e Idiomas */
+  .habilidades ul, .idiomas ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 5px;
+  }
+  
+  /* Resumo */
+  .resumo p {
+    font-size: 14px;
+    font-style: italic;
+  }
+  
+  /* Card estilo */
+  .secaoExperiencia p, .secaoFormacao p {
+    background-color: #f1f1f1;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  

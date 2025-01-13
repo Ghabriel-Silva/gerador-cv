@@ -31,8 +31,12 @@ const [dadosForm, setDadosForm] = useState({
   skilss: [],
   idioma: [],
   resumo:"",
-
-
+  instagran: "",
+  linkedin: "",
+  Facebook: "",
+  carteiramotorista: "",
+  disponibilidadeviajem: "",
+  pretencãosalarial: "",
 })
 
   return (
@@ -47,7 +51,7 @@ const [dadosForm, setDadosForm] = useState({
             <Route path="/skills" element={<Skills dadosForm={dadosForm} setDadosForm={setDadosForm} />} />
             <Route path="/idioma"  element={<Idioma dadosForm={dadosForm} setDadosForm={setDadosForm}/>} />
             <Route path="/resumo" element={<Resumo dadosForm={dadosForm}  setDadosForm={setDadosForm}/>} />
-            <Route path="/sectionextra" element={<SectionExtra/>} />
+            <Route path="/sectionextra" element={<SectionExtra dadosForm={dadosForm}  setDadosForm={setDadosForm} />} />
             <Route path="/download"  element={<DownloadCV  dadosForm={dadosForm}/> } />
           </Routes>
           <Footer />

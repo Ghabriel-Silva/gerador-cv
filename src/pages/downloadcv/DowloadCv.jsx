@@ -55,6 +55,21 @@ const DownloadCV = ({ dadosForm }) => {
             </div>
           ))}
         </div>
+
+
+        <div>
+        <h3>Idiomas </h3>
+          {dadosForm.idioma.map((idio)=>(
+            <div key={idio.id}>
+              <div>
+                <p> {idio.idioma} </p>
+                <p> {idio.nivelidioma} </p>
+              </div>  
+            </div>
+          ))}
+        </div>
+
+
     </div>
 
   );

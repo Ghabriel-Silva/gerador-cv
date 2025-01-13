@@ -1,6 +1,6 @@
 import DynamicButtons from "../../components/dinamicbuttons/DynamicButtons"
 import DynamicComponent from "../../components/dynamiccomponent/DynamicComponent"
-import { navigatetoPage, deleimitaArray, formatDate } from "../../utils"
+import { navigatetoPage, deleimitaArray } from "../../utils"
 import { useNavigate } from "react-router-dom"
 import Styles from '../../components/styleform/StylesForm.module.css'
 import { v4 as uuidv4 } from 'uuid';
@@ -75,32 +75,26 @@ const removebutton = (id)=>{
                   name="habilidades"
                   required
                   value={habili.habilidades}
-                 
                   onChange={(e)=>recebevalorSkills(e, habili.id)}
-                
-    
                   />
                   <label>Habilidade</label>
-                </div>
-                <div  className={Styles.inputdropdown} value="habili.nivelhabilidade" onChange={(e)=> recebevalorSkills(e, habili.id)} >
-                  <select name='nivelhabilidade'>
-                    <option hidden value='opcao1'>Nivel Habilidade</option>
-                    <option value="iniciante">Iniciante</option>
-                    <option value="Intermediário">Intermediário</option>
-                    <option value="fluente">Especialista</option>
-
-                  </select>
+                </div >
+                <div className={Styles.contianerselec}>
+                  <div  className={Styles.inputdropdown}>
+                    <select name='nivelhabilidade' value={habili.nivelhabilidade} onChange={(e)=> recebevalorSkills(e, habili.id)}>
+                      <option hidden value='opcao1'>Nivel Habilidade</option>
+                      <option value="iniciante">Iniciante</option>
+                      <option value="Intermediário">Intermediário</option>
+                      <option value="Especialista">Especialista</option>
+                    </select>
+                  </div>
                 </div>
                 <div className={Styles.descricaovaga}>
-                    <Buttonremove removeForm={(e)=>removebutton(habili.id)} />
-                </div>
-
-                 
-    
+                <Buttonremove removeForm={(e)=>removebutton(habili.id)} />
               </div>
-            
-             
+              </div>
 
+              
             </form>
         ))}
       

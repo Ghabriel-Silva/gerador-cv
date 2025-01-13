@@ -102,7 +102,7 @@ const removefomation = (id)=>{
         <form key={forma.id} className={Styles.formcontain}>
             <h3 className={Styles.indextext}>Formação: {index + 1} </h3>
 
-            <div >
+            <div>
               <div className={Styles.inputGroup}>
                   <input 
                     value={forma.instituicao}
@@ -165,8 +165,8 @@ const removefomation = (id)=>{
                 <label>Cidade</label>
             </div>
 
-            <div className={Styles.inputdropdown}  onChange={(e)=>pegaValorInputFormation(e, forma.id)}  value={forma.tituloGraduacao}>
-                <select name="tituloGraduacao"  >
+            <div className={Styles.inputdropdown}  >
+                <select name="tituloGraduacao" onChange={(e)=>pegaValorInputFormation(e, forma.id)}  value={forma.tituloGraduacao} >
                     <option value="option2"  hidden>Nível de formação</option>
                     <option value="diploma_ensino_medio">Diploma de Ensino Médio</option>
                     <option value="certificado">Certificado</option>
@@ -179,22 +179,23 @@ const removefomation = (id)=>{
                 </select>
             </div>
 
-            <div className={Styles.inputdropdown}  onChange={(e)=>pegaValorInputFormation(e, forma.id)} value={forma.Statusformation}>
-                <select  name="Statusformation">
+            <div className={Styles.inputdropdown}>
+                <select  name="Statusformation"  onChange={(e)=>pegaValorInputFormation(e, forma.id)} value={forma.Statusformation}>
                     <option value={'option1'} hidden>Status</option>
                     <option value="concluido">Concluido</option>
                     <option value="cursando">Cursando</option>
                     <option value="trancado">Trancado</option>
-                    <option value="nehuma das opções">Nehuma das opçõe</option>
+                    <option value="nehuma das opções">Nehuma das opçoês</option>
                 </select>
             </div>
 
+           
           </div>
 
-          <div  className={Styles.descricaovaga}>
-            <Buttonremove removeForm={(e)=>removefomation(forma.id)} />
-          </div>
-
+          <div  className={Styles.descricaovaga}> 
+              <Buttonremove removeForm={(e)=>removefomation(forma.id)} />
+            </div>
+          
         </form>
 
 

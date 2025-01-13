@@ -2,6 +2,7 @@
 
  
 .containerComponents{
+    width: 90vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,18 +13,16 @@
     height: auto;
   }
 
-  
   .formcontain{
+  
     max-width: 1100px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    align-items: start;
+    align-items:flex-start;
     justify-content: center;
     gap:20px ;
 }
-
-
 
 .inputparagafo{
   font-family: var(--Font-pages);
@@ -53,6 +52,7 @@
   }
   
   .inputGroup input {
+  
     font-size: 100%;
     padding: 0.8em;
     outline: none;
@@ -60,6 +60,7 @@
     background-color: transparent;
     border-radius: 12px;
     width: 100%;
+   
   }
   
 
@@ -105,22 +106,21 @@
 .date {
   display: flex;
   justify-content: space-between;
-
-  height: 50px;
-  padding: 5px 0; /* Ajuste de preenchimento */
+ 
+  font-family: var(--Font-pages);
+  margin: 1em 0 1em 0;
 }
 
 .date .inputGroup {
   width: 210px;
   margin: 0;
   padding: 0;
-  
 }
 
 
 
 .date input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none; /* Oculta o ícone do calendário */
+  display: none;
 }
 
 
@@ -129,8 +129,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: aqua;
   width: 450px;
+
 }
 
 .indextext{
@@ -151,13 +151,12 @@
 
 
 .inputdropdown{
-  
   font-family: var(--Font-pages);
   margin: 1em 0 1em 0;
+  width: 450px;
 }
 
 .inputdropdown select {
-
     font-size: 100%;
     padding: 0.8em;
     outline: none;
@@ -169,30 +168,42 @@
 
 
   @media (max-width:500px ){
-    .inputGroup{
+    .inputGroup, .descricaovaga, .inputdropdown select{
         width: 280px;
     }
+    
     .date .inputGroup{
       width: 135px;
     }
 
-    .inputdropdown select{
+    .inputdropdown {
       font-size: 14px;
+      width: 280px;
     }
+    
+    
+    
   }
 
   @media (max-width:350px ){
-    .inputGroup{
+    
+    .inputGroup, .descricaovaga , .inputdropdown select{
         width: 220px;
     }
-    .date .inputGroup{
+    .date .inputGroup {
       width: 105px;
     }
+    .inputdropdown {
+      font-size: 14px;
+      width: 220px;
+    }
+    
   }
+
 
   @media (max-width:899px){
     .formcontain{
-      gap: 0;
+      gap: 20px;
     }
   }
   

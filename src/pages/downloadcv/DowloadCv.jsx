@@ -69,6 +69,11 @@ const DownloadCV = ({ dadosForm }) => {
           ))}
         </div>
 
+        <div>
+          <h3>Resumo profissional</h3>
+          <p>{dadosForm.resumo}</p>
+        </div>
+
 
     </div>
 

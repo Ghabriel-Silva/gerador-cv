@@ -35,6 +35,9 @@
   font-family: var(--Font-pages);
   color: var(--color-all-text-pages);
 }
+.resumo{
+  width:900px !important ;
+}
 
 .inputGroup {
     font-family: var(--Font-pages);
@@ -51,8 +54,7 @@
     justify-content: center;
   }
   
-  .inputGroup input {
-  
+  .inputGroup input,  textarea {
     font-size: 100%;
     padding: 0.8em;
     outline: none;
@@ -76,7 +78,7 @@
     color: var(--color-all-text-pages);
   }
   
-  .inputGroup :is(input:focus, input:valid)~label {
+  .inputGroup :is(textarea:focus, input:focus,textarea:valid , input:valid)~label {
     transform: translateY(-50%) scale(.9);
     margin: 0em;
     margin-left: 1.3em;
@@ -85,7 +87,7 @@
     background-color:white;
   }
   
-  .inputGroup :is(input:focus, input:valid) {
+  .inputGroup :is(textarea:focus  input:focus textarea:valid ,input:valid) {
     border-color: var(--color-button-all-pages);
   }
 

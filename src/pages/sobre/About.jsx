@@ -33,7 +33,7 @@ const About = ({dadosForm, setDadosForm}) => {
     }
 
   return (
-    <div className={Styles.containerComponents}>
+    <div className={Styles.formcontain}>
       <DynamicComponent 
       title={"Dados pessoais"} 
       text={"Eles permitem que os empregadores vejam como podem entrar em contato com você."}

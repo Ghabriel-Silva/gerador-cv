@@ -29,3 +29,6 @@ export function deleimitaArray(obj, prop, max, nome){
     }
     return true; 
 }
+
+
+//

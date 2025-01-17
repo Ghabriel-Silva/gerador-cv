@@ -1,92 +1,159 @@
 /* Ajuste para evitar cortes de conteúdo */
 .curriculo {
-    width: 100%; /* Define largura dinâmica */
-    max-width: 800px; /* Define um limite de largura */
-    margin: 0 auto; /* Centraliza na tela */
-    padding: 20px; /* Espaçamento interno */
-    background-color: #fff;
+    height: 100vh;
+   width: 90vw; 
+   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+    margin: 0 auto; 
+    padding: 20px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: visible; /* Permite o conteúdo expandir */
+    overflow: visible; 
   }
   
-  /* Permite que o conteúdo se adapte à tela */
   body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+  
     color: #333;
-    overflow-x: hidden; /* Evita barra de rolagem horizontal */
+    overflow-x: hidden; 
   }
   
-  /* Cabeçalho */
-  .header {
-    text-align: center;
-    border-bottom: 2px solid #1e3f34;
-    margin-bottom: 20px;
+  .containtextebutton{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .containbutton{
+    display: flex;
+    align-items: center;
+    justify-content:center ;
   }
   
-  .header .nome {
-    font-size: 28px;
-    font-weight: bold;
-    color: #1e3f34;
-  }
-  
-  .header .contato {
-    font-size: 14px;
-    color: #666;
-    margin-top: 5px;
-  }
-  
-  /* Títulos das seções */
-  h2 {
-    font-size: 18px;
-    color: #1e3f34;
-    border-left: 4px solid #1e3f34;
-    padding-left: 10px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
-  
-  /* Seções */
-  section {
-    margin-bottom: 15px;
-  }
-  
-  section p, section ul {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  
-  .experienciaItem, .formacaoItem {
-    margin-bottom: 15px;
-  }
-  
-  /* Listas */
-  ul {
-    list-style-type: disc;
-    margin-left: 20px;
-  }
-  
-  /* Habilidades e Idiomas */
-  .habilidades ul, .idiomas ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 5px;
-  }
-  
-  /* Resumo */
-  .resumo p {
-    font-size: 14px;
-    font-style: italic;
-  }
-  
-  /* Card estilo */
-  .secaoExperiencia p, .secaoFormacao p {
-    background-color: #f1f1f1;
+  button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    background: none;
+    color: #0f1923;
+    cursor: pointer;
+    position: relative;
     padding: 8px;
-    margin: 5px 0;
-    border-radius: 5px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
     font-size: 14px;
+    transition: all .15s ease;
   }
+  
+  .button::before,
+  .button::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: calc(50% - 5px);
+    border: 1px solid #7D8082;
+    transition: all .15s ease;
+  }
+  
+  .button::before {
+    top: 0;
+    border-bottom-width: 0;
+  }
+  
+  .button::after {
+    bottom: 0;
+    border-top-width: 0;
+  }
+  
+  .button:active,
+  .button:focus {
+    outline: none;
+  }
+  
+  .button:active::before,
+  .button:active::after {
+    right: 3px;
+    left: 3px;
+  }
+  
+  .button:active::before {
+    top: 3px;
+  }
+  
+  .button:active::after {
+    bottom: 3px;
+  }
+  
+  .buttonlg {
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #0f1923;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 0px 1px transparent;
+  }
+  
+  .buttonlg::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background-color: #0f1923;
+  }
+  
+  .buttonlg::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 4px;
+    height: 4px;
+    background-color: #0f1923;
+    transition: all .2s ease;
+  }
+  
+  .buttonsl {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    left: -8px;
+    width: 0;
+    background-color: #ff4655;
+    transform: skew(-15deg);
+    transition: all .2s ease;
+  }
+  
+  .buttontext {
+    position: relative;
+  }
+  
+  .button:hover {
+    color: #0f1923;
+  }
+  
+  .button:hover .buttonsl {
+    width: calc(100% + 15px);
+  }
+  
+  .button:hover .buttonlg::after {
+    background-color: #fff;
+  }
+  
+
+
+
+
   

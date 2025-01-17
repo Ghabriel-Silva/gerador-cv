@@ -73,7 +73,7 @@ return (
                 type="text"
                 name="idioma"
                 required
-                value={idio.idioma}
+                value={idio.idioma || ""}
                 onChange={(e)=>recebevaloridioma(e, idio.id)}
                 />
                 <label>Idioma</label>
@@ -81,7 +81,7 @@ return (
               <div className={Styles.contianerselec}>
                 <div  className={Styles.inputdropdown}  >
                   <select name='nivelidioma'
-                   value={idio.nivelidioma}
+                   value={idio.nivelidioma || ""}
                     onChange={(e)=> recebevaloridioma(e, idio.id)}
                    >
                     <option hidden value='opcao1'>Nivel Idioma</option>

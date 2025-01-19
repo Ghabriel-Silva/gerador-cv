@@ -28,10 +28,10 @@ const SectionExtra = ({ dadosForm, setDadosForm }) => {
     <div className={Styles.formcontain}>
       <DynamicComponent
         title={"Dados Extras"}
-        text={"Opcional: adicione informações adicionais."}
+        text={"Opcional: Insira informações adicionais para complementar os dados fornecidos."}
       />
 
-      <form className={Styles.formcontain}>
+      <form className={`${Styles.formcontain} ${Styles.formcotandow}`}>
             <div>
               <div className={Styles.inputGroup}>
                 <input
@@ -67,13 +67,13 @@ const SectionExtra = ({ dadosForm, setDadosForm }) => {
 
               <div>
                 <div className={Styles.inputdropdown}>
-            
+                  <label className={Styles.inpudowlabel}>Selecione a categoria da CNH:</label>
                   <select
                     name="carteiramotorista"
                     onChange={pegaValorDadosExtra} 
                     value={dadosForm.carteiramotorista}
                   >
-                    <option value="Selecione a categoria da CNH" hidden>Selecione a categoria da CNH</option>
+                    <option value="" hidden></option>
                     <option value="A">A</option>
                     <option value="A-B">A-B</option>
                     <option value="A-B-C">A-B-C</option>
@@ -83,12 +83,13 @@ const SectionExtra = ({ dadosForm, setDadosForm }) => {
                 </div>
 
                 <div className={Styles.inputdropdown}>
+                  <label  className={Styles.inpudowlabel}>Disponibilidadeviagem:</label>
                   <select
                     name="disponibilidadeviajem"
                     onChange={pegaValorDadosExtra} 
                     value={dadosForm.disponibilidadeviajem}
                   >
-                    <option value="Disponibilidade para viagem" hidden>Disponibilidadeviagem</option>
+                    <option value="" hidden></option>
                     <option value="sim">Sim</option>
                     <option value="nao">Não</option>
                     <option value="negociavel">Negociável</option>
@@ -96,12 +97,13 @@ const SectionExtra = ({ dadosForm, setDadosForm }) => {
                 </div>
 
                 <div className={Styles.inputdropdown}>
+                  <label   className={Styles.inpudowlabel}>Pretensão Salarial:</label>
                   <select
                     name="pretencãosalarial"
                     onChange={pegaValorDadosExtra} 
                     value={dadosForm.pretencãosalarial}
                   >
-                    <option value="PretensãoSalarial" hidden>Pretensão Salarial</option>
+                    <option value="" hidden></option>
                     <option value=">Até 1.000 R$">Até 1.000 R$</option>
                     <option value="1.000 a 1.500 R$">1.000 a 1.500 R$</option>
                     <option value="1.500 a 2.000 R$">1.500 a 2.000 R$</option>

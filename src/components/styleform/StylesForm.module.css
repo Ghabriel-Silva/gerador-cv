@@ -14,7 +14,6 @@
   }
 
   .formcontain{
-  
     max-width: 1100px;
     width: 100%;
     display: flex;
@@ -22,6 +21,12 @@
     align-items:flex-start;
     justify-content: center;
     gap:20px ;
+}
+.formcotandow{
+    display: flex !important;
+    justify-content: center !important ;
+    align-items: center !important;
+    flex-direction: column !important;
 }
 
 .inputparagafo{
@@ -156,6 +161,10 @@
   font-family: var(--Font-pages);
   margin: 1em 0 1em 0;
   width: 450px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .inputdropdown select {
@@ -166,6 +175,9 @@
     background-color: transparent;
     border-radius: 12px;
     width: 100%;
+  }
+  .inpudowlabel{
+    font-family: var(--Font-pages);
   }
 
 
@@ -205,7 +217,7 @@
 
   @media (max-width:899px){
     .formcontain{
-      gap: 20px;
+      gap: 10px;
     }
   }
   

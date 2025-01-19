@@ -30,7 +30,6 @@ const addskills = ()=>{
   const newSkills  = ()=>({
     id: uuidv4(),
     habilidades:"", 
-    nivelhabilidade:"",
   })
   setDadosForm((prev)=>({
     ...prev,  
@@ -63,7 +62,7 @@ const removebutton = (id)=>{
     <div className={`${Styles.containerComponents} ${dadosForm.skilss.length > 0 ? Styles.autoheight : "" }`}>
         <DynamicComponent 
         title={"Habilidades"} 
-        text={"Acrescente suas Habilidades como comunicação, proatividade, dinamisco, oratória entre outros."} />
+        text={"Opcional: Inclua habilidades como comunicação, proatividade, dinamismo ou outras competências relevantes ao seu perfil. "} />
         {dadosForm.skilss.map((habili,index)=>(
 
               <form key={habili.id} className={Styles.formcontain}>
@@ -79,16 +78,7 @@ const removebutton = (id)=>{
                   />
                   <label>Habilidade</label>
                 </div >
-                <div className={Styles.contianerselec}>
-                  <div  className={Styles.inputdropdown}>
-                    <select name='nivelhabilidade' value={habili.nivelhabilidade} onChange={(e)=> recebevalorSkills(e, habili.id)}>
-                      <option hidden value='opcao1'>Nivel Habilidade</option>
-                      <option value="iniciante">Iniciante</option>
-                      <option value="Intermediário">Intermediário</option>
-                      <option value="Especialista">Especialista</option>
-                    </select>
-                  </div>
-                </div>
+                
                 <div className={Styles.descricaovaga}>
                 <Buttonremove removeForm={(e)=>removebutton(habili.id)} />
               </div>

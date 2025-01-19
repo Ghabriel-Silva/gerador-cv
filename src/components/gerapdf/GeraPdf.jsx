@@ -159,30 +159,30 @@ const experienciaSection = dadosForm.experiencia && dadosForm.experiencia.length
   ...dadosForm.experiencia.filter((exp) => exp.cargo && exp.empregador).map((exp) => {
     const finalExp = exp.trabalhoatual ? "Trabalho Atual" : exp.finalexp;
 
-    // Começamos a construir o texto
+   
     const textContent = [];
 
-    // Adiciona o cargo e empregador, se estiverem preenchidos
+   
     if (exp.cargo && exp.empregador) {
       textContent.push(`${exp.cargo} - ${exp.empregador} - (${exp.inicioexp} - ${finalExp})\n`);
     }
 
-    // Adiciona "Cidade" se o campo estiver preenchido
+  
     if (exp.cidade) {
       textContent.push({ text: "Cidade: ", style: "boldtext" }, exp.cidade);
     }
 
-    // Adiciona "Estado" se o campo estiver preenchido
+   
     if (exp.estado) {
       textContent.push({ text: "Estado: ", style: "boldtext" }, exp.estado);
     }
 
-    // Adiciona "Descrição da vaga" se o campo estiver preenchido
+  
     if (exp.descricaovaga) {
       textContent.push({ text: "Descrição da vaga: ", style: "boldtext" }, exp.descricaovaga);
     }
 
-    // Verifica se há algum texto para exibir
+  
     if (textContent.length > 0) {
       return {
         text: textContent,
@@ -190,9 +190,9 @@ const experienciaSection = dadosForm.experiencia && dadosForm.experiencia.length
       };
     }
 
-    // Retorna null se não houver dados para exibir
+  
     return null;
-  }).filter(Boolean), // Remove itens null ou undefined
+  }).filter(Boolean), 
 ] : [];
 
 
@@ -200,30 +200,30 @@ const experienciaSection = dadosForm.experiencia && dadosForm.experiencia.length
 const formationSection = dadosForm.formation && dadosForm.formation.length > 0 ? [
   { text: "Formação Acadêmica", style: "sectionHeader" },
   ...dadosForm.formation.map((form) => {
-    // Iniciar a construção do texto
+   
     const textContent = [];
 
-    // Adiciona o nome do curso e instituição, se estiverem preenchidos
+   
     if (form.cursoname && form.instituicao) {
       textContent.push(`${form.cursoname} - ${form.instituicao} - (${form.incialfomation} - ${form.finalfomation})\n`);
     }
 
-    // Adiciona "Cidade" se o campo estiver preenchido
+ 
     if (form.formationcidade) {
       textContent.push({ text: "Cidade: ", style: "boldtext" }, form.formationcidade);
     }
 
-    // Adiciona "Graduação" se o campo estiver preenchido
+   
     if (form.tituloGraduacao) {
       textContent.push({ text: "Graduação: ", style: "boldtext" }, form.tituloGraduacao);
     }
 
-    // Adiciona "Status" se o campo estiver preenchido
+  
     if (form.Statusformation) {
       textContent.push({ text: "Status: ", style: "boldtext" }, form.Statusformation);
     }
 
-    // Verifica se há algum texto para exibir
+    
     if (textContent.length > 0) {
       return {
         text: textContent,
@@ -231,20 +231,28 @@ const formationSection = dadosForm.formation && dadosForm.formation.length > 0 ?
       };
     }
 
-    // Retorna null se não houver dados para exibir
+ir
     return null;
-  }).filter(Boolean), // Remove itens null ou undefined
+  }).filter(Boolean),
 ] : null;
 
 
 // Habilidades
-const skillsSection = dadosForm.skilss && dadosForm.skilss.length > 0 ? [
-  { text: "Habilidades Técnicas", style: "sectionHeader" },
-  {
-    ul: dadosForm.skilss.map((skill) => `${skill.habilidades} - ${skill.nivelhabilidade}`),
-    margin: [0, 0, 0, 5],
-  },
-] : null;
+const skillsSection = 
+  Array.isArray(dadosForm.skilss) && 
+  dadosForm.skilss.length > 0 && 
+  dadosForm.skilss.some(skill => skill.habilidades) // Garante que há conteúdo válido no array
+    ? [
+        { text: "Habilidades Técnicas", style: "sectionHeader" },
+        {
+          ul: dadosForm.skilss
+            .filter(skill => skill.habilidades) // Filtra itens inválidos
+            .map(skill => `${skill.habilidades}`),
+          margin: [0, 0, 0, 5],
+        },
+      ]
+    : null;
+
 
 // Idiomas
 

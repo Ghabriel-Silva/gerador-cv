@@ -168,24 +168,26 @@ const removefomation = (id)=>{
             <div className={Styles.inputdropdown}  >
                 <select name="tituloGraduacao" onChange={(e)=>pegaValorInputFormation(e, forma.id)}  value={forma.tituloGraduacao} >
                     <option value="option2"  hidden>Nível de formação</option>
-                    <option value="diploma_ensino_medio">Diploma de Ensino Médio</option>
-                    <option value="certificado">Certificado</option>
-                    <option value="licenciatura">Licenciatura</option>
-                    <option value="graduacao">Graduação</option>
-                    <option value="pos_graduacao">Pós-graduação</option>
-                    <option value="diploma_tecnico">Diploma Técnico</option>
-                    <option value="graduacao_incompleta">Graduação Incompleta</option>
-                    <option value="bacharelado">Bacharelado</option>
+                    <option value="Ensino medio">Ensino Médio</option>
+                    <option value="Certificado">Certificado</option>
+                    <option value="Licenciatura">Licenciatura</option>
+                    <option value="Graduacao">Graduação</option>
+                    <option value="Pós graduação">Pós-graduação</option>
+                    <option value="Diploma técnico">Diploma Técnico</option>
+                    <option value="Graduacao incompleta">Graduação Incompleta</option>
+                    <option value="Bacharelado">Bacharelado</option>
                 </select>
             </div>
 
             <div className={Styles.inputdropdown}>
                 <select  name="Statusformation"  onChange={(e)=>pegaValorInputFormation(e, forma.id)} value={forma.Statusformation}>
                     <option value={'option1'} hidden>Status</option>
-                    <option value="concluido">Concluido</option>
-                    <option value="cursando">Cursando</option>
-                    <option value="trancado">Trancado</option>
-                    <option value="nehuma das opções">Nehuma das opçoês</option>
+                    
+                    <option value="Não concluido">Não concluido</option>
+                    <option value="Concluido">Concluido</option>
+                    <option value="Cursando">Cursando</option>
+                    <option value="Trancado">Trancado</option>
+                    <option value="Nehuma das opções">Nehuma das opções</option>
                 </select>
             </div>
 

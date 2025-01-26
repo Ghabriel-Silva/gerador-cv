@@ -1,7 +1,7 @@
 async function GeraPdf(dadosForm) {
   try {
-    // Dados simulados para não precisar preencher o formulário
-    /*const mockData = {
+    /*
+    const dadosForm = {
       nome: "Gabriel",
       sobrenome: "Silva",
       cidade: "São Paulo",
@@ -17,7 +17,7 @@ async function GeraPdf(dadosForm) {
           cargo: "Desenvolvedor Front-End",
           empregador: "Tech Solutions",
           inicioexp: "01/2020",
-          finalexp: "12/2022",
+          finalexp: "",
           cidade: "São Paulo",
           estado: "SP",
           trabalhoatual: false,
@@ -26,12 +26,12 @@ async function GeraPdf(dadosForm) {
         {
           cargo: "Auxiliar de TI",
           empregador: "Empresa XYZ",
-          inicioexp: "01/2018",
+          inicioexp: "",
           finalexp: "12/2019",
           cidade: "Rio de Janeiro",
-          estado: "RJ",
-          trabalhoatual: false,
-          descricaovaga: "Manutenção de computadores, suporte técnico e configuração de redes.",
+          estado: "",
+          trabalhoatual: true,
+          descricaovaga: "Manutenção de computadores,  Manutenção de computadores, suporte técnico e configuração de redes.Manutenção de computadores, suporte técnico e configuração de redes.suporte técnico e configuração de redes.",
         },
       ],
       formation: [
@@ -49,7 +49,7 @@ async function GeraPdf(dadosForm) {
           cursoname: "Desenvolvimento Web",
           incialfomation: "01/2017",
           finalfomation: "12/2018",
-          formationcidade: "Campinas CampinasCampinasCampinasCampinasCampinasCampinasCampinas",
+          formationcidade: "Campinas",
           tituloGraduacao: "Certificado",
           Statusformation: "Concluído",
         },
@@ -70,12 +70,12 @@ async function GeraPdf(dadosForm) {
       ],
       idioma: [
         {
-          Idioma: "Inglês",
+          idioma: "",
           nivelidioma: "Avançado",
         },
         {
-          Idioma: "Espanhol",
-          nivelidioma: "Intermediário",
+          idioma: "",
+          nivelidioma: "",
         },
       ],
       resumo:
@@ -87,7 +87,10 @@ async function GeraPdf(dadosForm) {
       disponibilidadeviajem: "Disponível para viagens",
       pretencãosalarial: "R$ 5.000,00",
     };
-*/
+    */
+
+
+
     // Importando pdfmake e vfs_fonts
     const pdfMake = (await import("pdfmake/build/pdfmake")).default;
     const pdfFonts = (await import("pdfmake/build/vfs_fonts")).default;
@@ -99,10 +102,10 @@ async function GeraPdf(dadosForm) {
     const reportTitle = [
       
       dadosForm.nome && dadosForm.sobrenome ? {
-        text: `${dadosForm.nome} ${dadosForm.sobrenome}`,
+        
+        text: ` Curriculo ${dadosForm.nome} ${dadosForm.sobrenome}`,
         fontSize: 22,
-        bold: true,
-        background:'#ADD8E6', 
+        bold: true, 
         alignment: 'center', // Alinha o texto à esquerda
         margin: [0, 20, 0, 20],
       }: null,
@@ -156,85 +159,132 @@ const resumoSection = [
 
 const experienciaSection = dadosForm.experiencia && dadosForm.experiencia.length > 0 ? [
   { text: "Experiência Profissional", style: "sectionHeader" },
-  ...dadosForm.experiencia.filter((exp) => exp.cargo && exp.empregador).map((exp) => {
+  ...dadosForm.experiencia.filter((exp) => exp.cargo || exp.empregador).map((exp) => {
     const finalExp = exp.trabalhoatual ? "Trabalho Atual" : exp.finalexp;
 
-   
-    const textContent = [];
+    const content = [];
 
-   
-    if (exp.cargo && exp.empregador) {
-      textContent.push(`${exp.cargo} - ${exp.empregador} - (${exp.inicioexp} - ${finalExp})\n`);
+    if (exp.cargo || exp.empregador) {
+      const columns = [];
+      
+      if (exp.cargo ) {
+        columns.push({ text: [{ text: "Cargo: ", style: "boldtext" }, exp.cargo], width: '50%' });
+      }
+      
+      if (exp.empregador )  {
+        columns.push({ text: [{ text: "Empregador: ", style: "boldtext" }, exp.empregador], width: '50%' });
+      }
+      
+      // Adicionando a coluna, mesmo que um dos campos esteja vazio
+      if (columns.length > 0) {
+        content.push({
+          columns,
+          columnGap: 10, // Espaçamento entre as colunas
+        });
+      }
+    }
+    
+
+    if (exp.inicioexp || exp.finalexp) {
+      const columns = []
+      if(exp.inicioexp){
+        columns.push({ text: [{ text: "Data inicial: ", style: "boldtext" }, exp.inicioexp], width: '50%' })
+      }
+      if(exp.finalexp){
+        columns.push( { text: [{ text: "Data final: ", style: "boldtext" }, finalExp], width: '50%' })
+      }
+      content.push({
+        columns, 
+        columnGap: 10,
+      });
     }
 
-  
-    if (exp.cidade) {
-      textContent.push({ text: "Cidade: ", style: "boldtext" }, exp.cidade);
-    }
 
-   
-    if (exp.estado) {
-      textContent.push({ text: "Estado: ", style: "boldtext" }, exp.estado);
-    }
 
-  
+    if (exp.cidade || exp.estado) {
+      const columns = [];
+    
+      if (exp.cidade) {
+        columns.push({ text: [{ text: "Cidade: ", style: "boldtext" }, exp.cidade], width: '50%' });
+      }
+    
+      if (exp.estado) {
+        columns.push({ text: [{ text: "Estado: ", style: "boldtext" }, exp.estado], width: '50%' });
+      }
+    
+      content.push({
+        columns,
+        columnGap: 10,
+      });
+    }
+    
     if (exp.descricaovaga) {
-      textContent.push({ text: "Descrição da vaga: ", style: "boldtext" }, exp.descricaovaga);
+      content.push({ text: [{ text: "Descrição da vaga: ", style: "boldtext" }, exp.descricaovaga] });
     }
 
-  
-    if (textContent.length > 0) {
-      return {
-        text: textContent,
-        margin: [0, 0, 0, 10],
-      };
-    }
-
-  
-    return null;
-  }).filter(Boolean), 
+    return {
+      stack: content, // Usando stack para organizar cada seção em uma linha
+      margin: [0, 0, 0, 10], // Margem inferior entre as experiências
+    };
+  }).filter(Boolean),
 ] : [];
 
 
 // Formação
 const formationSection = dadosForm.formation && dadosForm.formation.length > 0 ? [
   { text: "Formação Acadêmica", style: "sectionHeader" },
-  ...dadosForm.formation.map((form) => {
-   
-    const textContent = [];
+  ...dadosForm.formation.filter((form) => form.cursoname || form.instituicao).map((form) => {
+    const content = [];
 
-   
-    if (form.cursoname && form.instituicao) {
-      textContent.push(`${form.cursoname} - ${form.instituicao} - (${form.incialfomation} - ${form.finalfomation})\n`);
+    if (form.cursoname || form.instituicao) {
+      content.push({
+        columns: [
+          { text: [{ text: "Curso: ", style: "boldtext" }, form.cursoname], width: '50%' },
+          { text: [{ text: "Instituição: ", style: "boldtext" }, form.instituicao], width: '50%' },
+        ],
+        columnGap: 10, // Espaçamento entre as colunas
+      });
     }
 
- 
+    if (form.incialfomation || form.finalfomation) {
+      const columns = [];
+      if (form.incialfomation) {
+        columns.push({ text: [{ text: "Data inicial: ", style: "boldtext" }, form.incialfomation], width: '50%' });
+      }
+      if (form.finalfomation) {
+        columns.push({ text: [{ text: "Data final: ", style: "boldtext" }, form.finalfomation], width: '50%' });
+      }
+      content.push({
+        columns,
+        columnGap: 10,
+      });
+    }
+
+    if (form.tituloGraduacao || form.Statusformation ) {
+      const columns = []
+      if(form.tituloGraduacao){
+        columns.push({ text: [{ text: "Graduação: ", style: "boldtext" }, form.tituloGraduacao],  width: '50%'})
+      }
+       
+      if(form.Statusformation){
+        columns.push({ text: [{ text: "Status: ", style: "boldtext" }, form.Statusformation],  width: '50%' })
+      }
+      content.push({
+        columns,
+        columnGap: 10,
+      });
+    }
+
+
     if (form.formationcidade) {
-      textContent.push({ text: "Cidade: ", style: "boldtext" }, form.formationcidade);
+      content.push({ text: [{ text: "Cidade: ", style: "boldtext" }, form.formationcidade] });
     }
-
-   
-    if (form.tituloGraduacao) {
-      textContent.push({ text: "Graduação: ", style: "boldtext" }, form.tituloGraduacao);
-    }
-
-  
-    if (form.Statusformation) {
-      textContent.push({ text: "Status: ", style: "boldtext" }, form.Statusformation);
-    }
-
-    
-    if (textContent.length > 0) {
-      return {
-        text: textContent,
-        margin: [0, 0, 0, 10],
-      };
-    }
-
-ir
-    return null;
+    return {
+      stack: content, // Usando stack para organizar cada seção em uma linha
+      margin: [0, 0, 0, 10], // Margem inferior entre as formações
+    };
   }).filter(Boolean),
-] : null;
+] : [];
 
 
 // Habilidades
@@ -261,7 +311,6 @@ const idiomasSection = dadosForm.idioma && dadosForm.idioma.length > 0 ? [
   {
     ul: dadosForm.idioma.map((idioma) => {
       // Verifique se as chaves existem
-      console.log(idioma); // Verifique o conteúdo do objeto
       return `${idioma.idioma || 'Idioma não especificado'} - ${idioma.nivelidioma || 'Nível não especificado'}`;
     }),
     margin: [0, 0, 0, 5],

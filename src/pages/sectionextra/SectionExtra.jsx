@@ -90,9 +90,9 @@ const SectionExtra = ({ dadosForm, setDadosForm }) => {
                     value={dadosForm.disponibilidadeviajem}
                   >
                     <option value="" hidden></option>
-                    <option value="sim">Sim</option>
-                    <option value="nao">Não</option>
-                    <option value="negociavel">Negociável</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Nao">Não</option>
+                    <option value="Negociável">Negociável</option>
                   </select>
                 </div>
 

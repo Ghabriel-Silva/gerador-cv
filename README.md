@@ -11,7 +11,18 @@ Este repositório contém o código-fonte do **Gerador de Currículo**, uma apli
 ## 📸 Preview da Aplicação
 Aqui está uma prévia do Gerador de Currículo em funcionamento:
 
-![Preview da Aplicação](assets/preview-app.png)
+### 🖥️ Versão Desktop
+
+![Exemplo Desktop 1](src/assets/img-pc1.png)
+![Exemplo Desktop 2](src/assets/img-pc2.png)
+
+### 📱 Versão Mobile
+
+| Exemplo 1 | Exemplo 2 | Exemplo 3 |
+|-----------|-----------|-----------|
+| ![Exemplo Mobile 1](src/assets/img-phone1.png) | ![Exemplo Mobile 2](src/assets/img-phone2.png) | ![Exemplo Mobile 3](src/assets/img-phone3.png) |
+| ![Exemplo Mobile 4](src/assets/img-phone4.png) | ![Exemplo Mobile 5](src/assets/img-phone5.png) | ![Exemplo Mobile 6](src/assets/img-phone6.png) |
+| ![Exemplo Mobile 7](src/assets/img-phone7.png) | ![Exemplo Mobile 8](src/assets/img-phone8.png) | ![Exemplo Mobile 9](src/assets/img-phone9.png) |
 
 ---
 
@@ -57,13 +68,6 @@ Para implantar este projeto em um ambiente ativo, siga as instruções do proved
 - Styled Components
 - PDFMaker
 
-## 📷 Exemplos da Aplicação
-Aqui estão algumas imagens da aplicação em funcionamento:
-
-![Editor de Currículo](assets/editor.png)
-![Visualização do Currículo](assets/preview-cv.png)
-![Exportação em PDF](assets/export-pdf.png)
-
 ## ✒️ Autor
 - **Gabriel Silva** - Desenvolvedor do projeto
 
@@ -73,4 +77,3 @@ Este projeto está sob a licença MIT - veja o arquivo LICENSE para detalhes.
 ## 🎁 Expressões de gratidão
 - Se você gostou do projeto, considere compartilhá-lo! 📢
 - Feedbacks e sugestões são sempre bem-vindos! 🚀
-

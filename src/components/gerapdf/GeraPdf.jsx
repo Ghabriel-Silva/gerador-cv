@@ -382,13 +382,24 @@ const docDefinitios = {
   pageMargins: [40, 60, 40, 40],
   header: [reportTitle],
   content: [
-    infoheader, 
+    infoheader ,
+
+    { canvas: [{ type: "line", x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 1 }], margin: [0, 10, 0, 10] },
     resumoSection,
+
+    { canvas: [{ type: "line", x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 1 }], margin: [0, 10, 0, 10] },
     experienciaSection,
+
+    { canvas: [{ type: "line", x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 1 }], margin: [0, 10, 0, 10] },
     formationSection,
+
+    { canvas: [{ type: "line", x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 1 }], margin: [0, 10, 0, 10] },
     skillsSection,
+
+    { canvas: [{ type: "line", x1: 0, y1: 0, x2: 515, y2: 0, lineWidth: 1 }], margin: [0, 10, 0, 10] },
     idiomasSection,
-    dadosextra,
+
+    dadosextra, // Removendo a linha antes dessa seção
   ],
   footer: Rodape,
   styles: {
@@ -397,9 +408,9 @@ const docDefinitios = {
       bold: true,
       margin: [0, 10, 0, 10],
     },
-    boldtext:{
+    boldtext: {
       bold: true,
-    }
+    },
   },
 };
 

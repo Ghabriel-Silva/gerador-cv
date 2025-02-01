@@ -13,8 +13,8 @@ Aqui está uma prévia do Gerador de Currículo em funcionamento:
 
 ### 🖥️ Versão Desktop
 
-![Exemplo Desktop 1](src/assets/img-pc1.png)
-![Exemplo Desktop 2](src/assets/img-pc2.png)
+![Todas as telas do desktop](src/assets/img-desktop.png)  
+🔹 Visualização completa de todas as telas da versão desktop.
 
 ### 📱 Versão Mobile
 
